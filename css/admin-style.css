@@ -1,0 +1,13 @@
+.form_table {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.form_table th {
+    width: 25%;
+    text-align: left;
+}
+
+.form_table textarea {
+    height: 100px;
+}

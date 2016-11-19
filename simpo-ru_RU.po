@@ -1,0 +1,302 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Simple Portfolio v0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2016-11-09 23:49:01+0000\n"
+"Last-Translator: admin <sergpost3@mail.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%100/10==1 ? 2 : n%10==1 ? 0 : (n+9)%10>3 ? 2 : 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: classes/meta-boxes.class.php:16
+#@ simpo
+msgid "Portfolio data"
+msgstr ""
+
+#: classes/meta-boxes.class.php:17
+#@ simpo
+msgid "Portfolio image"
+msgstr ""
+
+#: classes/post-type.class.php:31
+#: classes/post-type.class.php:41
+#@ simpo
+msgid "Fields"
+msgstr ""
+
+#: classes/post-type.class.php:32
+#@ simpo
+msgid "Field"
+msgstr ""
+
+#: classes/post-type.class.php:33
+#@ simpo
+msgid "Search Fields"
+msgstr ""
+
+#: classes/post-type.class.php:34
+#@ simpo
+msgid "All Fields"
+msgstr ""
+
+#: classes/post-type.class.php:35
+#@ simpo
+msgid "Parent Field"
+msgstr ""
+
+#: classes/post-type.class.php:36
+#@ simpo
+msgid "Parent Field:"
+msgstr ""
+
+#: classes/post-type.class.php:37
+#@ simpo
+msgid "Edit Field"
+msgstr ""
+
+#: classes/post-type.class.php:38
+#@ simpo
+msgid "Update Field"
+msgstr ""
+
+#: classes/post-type.class.php:39
+#@ simpo
+msgid "Add New Field"
+msgstr ""
+
+#: classes/post-type.class.php:40
+#@ simpo
+msgid "New Field Name"
+msgstr ""
+
+#: classes/post-type.class.php:42
+#@ simpo
+msgid "Separate writers with commas"
+msgstr ""
+
+#: classes/post-type.class.php:43
+#@ simpo
+msgid "Add or remove writers"
+msgstr ""
+
+#: classes/post-type.class.php:44
+#@ simpo
+msgid "Choose from the most used writers"
+msgstr ""
+
+#: classes/post-type.class.php:60
+#: classes/post-type.class.php:71
+#: views/frontend/portfolio.php:24
+#@ simpo
+#@ krigus
+msgid "Portfolio"
+msgstr ""
+
+#: classes/post-type.class.php:61
+#@ simpo
+msgid "Portfolio item"
+msgstr ""
+
+#: classes/post-type.class.php:62
+#@ simpo
+msgid "Add new"
+msgstr ""
+
+#: classes/post-type.class.php:63
+#@ simpo
+msgid "Add new portfolio"
+msgstr ""
+
+#: classes/post-type.class.php:64
+#@ simpo
+msgid "Edit portfolio"
+msgstr ""
+
+#: classes/post-type.class.php:65
+#@ simpo
+msgid "New portfolio"
+msgstr ""
+
+#: classes/post-type.class.php:66
+#@ simpo
+msgid "View portfolio"
+msgstr ""
+
+#: classes/post-type.class.php:67
+#@ simpo
+msgid "Search"
+msgstr ""
+
+#: classes/post-type.class.php:68
+#@ simpo
+msgid "Not found"
+msgstr ""
+
+#: classes/post-type.class.php:69
+#@ simpo
+msgid "Not found in trash"
+msgstr ""
+
+#: classes/settings.class.php:9
+#: classes/settings.class.php:10
+#: views/settings_page.php:2
+#@ simpo
+msgid "Portfolio settings"
+msgstr ""
+
+#: classes/settings.class.php:21
+#@ simpo
+msgid "Page portfolio"
+msgstr ""
+
+#: classes/simpo.class.php:25
+#@ simpo
+msgid "All"
+msgstr ""
+
+#: classes/simpo.class.php:58
+#: meta-boxes/portfolio-addr.php:50
+#: meta-boxes/portfolio-addr.php:53
+#@ simpo
+msgid "CMS"
+msgstr ""
+
+#: classes/simpo.class.php:59
+#: meta-boxes/portfolio-addr.php:60
+#: meta-boxes/portfolio-addr.php:63
+#@ simpo
+msgid "Framework"
+msgstr ""
+
+#: classes/simpo.class.php:60
+#: meta-boxes/portfolio-addr.php:40
+#: meta-boxes/portfolio-addr.php:43
+#@ simpo
+msgid "Description"
+msgstr ""
+
+#: classes/simpo.class.php:61
+#@ simpo
+msgid "Start/end date"
+msgstr ""
+
+#: classes/simpo.class.php:62
+#@ simpo
+msgid "My Role"
+msgstr ""
+
+#: classes/simpo.class.php:68
+#@ simpo
+msgid "Site"
+msgstr ""
+
+#: meta-boxes/portfolio-addr.php:4
+#@ simpo
+msgid "Site address and images"
+msgstr ""
+
+#: meta-boxes/portfolio-addr.php:9
+#@ simpo
+msgid "Enter site address"
+msgstr ""
+
+#: meta-boxes/portfolio-addr.php:12
+#@ simpo
+msgid "http://krigus.com/"
+msgstr ""
+
+#: meta-boxes/portfolio-addr.php:19
+#@ simpo
+msgid "Images actions"
+msgstr ""
+
+#: meta-boxes/portfolio-addr.php:24
+#@ simpo
+msgid "Dont update thumbnail image"
+msgstr ""
+
+#: meta-boxes/portfolio-addr.php:29
+#@ simpo
+msgid "Dont update portfolio image"
+msgstr ""
+
+#: meta-boxes/portfolio-addr.php:35
+#: views/frontend/single-portfolio.php:18
+#@ simpo
+msgid "Details"
+msgstr ""
+
+#: meta-boxes/portfolio-addr.php:70
+#: meta-boxes/portfolio-addr.php:73
+#@ simpo
+msgid "Date start/end"
+msgstr ""
+
+#: meta-boxes/portfolio-addr.php:80
+#: meta-boxes/portfolio-addr.php:83
+#@ simpo
+msgid "Role"
+msgstr ""
+
+#: views/settings_page.php:8
+#@ simpo
+msgid "Portfolio page"
+msgstr ""
+
+#: views/settings_page.php:20
+#@ simpo
+msgid "Delete images"
+msgstr ""
+
+#: views/settings_page.php:29
+#@ simpo
+msgid "Delete images after change site URL"
+msgstr ""
+
+#: views/settings_page.php:35
+#@ simpo
+msgid "Portfolio columns"
+msgstr ""
+
+#: views/settings_page.php:41
+#@ simpo
+msgid "2 column"
+msgstr ""
+
+#: views/settings_page.php:46
+#@ simpo
+msgid "3 column"
+msgstr ""
+
+#: views/settings_page.php:51
+#@ simpo
+msgid "4 column"
+msgstr ""
+
+#: views/settings_page.php:57
+#@ simpo
+msgid "Portfolio per page"
+msgstr ""
+
+#: views/settings_page.php:59
+#@ simpo
+msgid "posts"
+msgstr ""
+
+#: views/settings_page.php:65
+#@ simpo
+msgid "Save"
+msgstr ""
+
