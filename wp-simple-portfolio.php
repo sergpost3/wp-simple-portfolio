@@ -3,14 +3,14 @@
 /**
  * Plugin Name: WP Simple Portfolio
  * Description: Simple Portfolio in your site
- * Version: 0.7.7
+ * Version: 0.7.8
  * Author: Krigus
  * Author URI: http://krigus.com/
  * License: GPL2 or later
  * Author e-mail: sergpost33@gmail.com
  */
 
-define( 'SIMPO_VERSION', '0.7.7' );
+define( 'SIMPO_VERSION', '0.7.8' );
 define( 'SIMPO__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SIMPO__PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'SIMPO_VIEWS_FRONT', SIMPO__PLUGIN_DIR . "views/frontend/" );

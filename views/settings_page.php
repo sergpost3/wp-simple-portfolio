@@ -17,6 +17,30 @@
                 </td>
             </tr>
             <tr>
+                <th scope="row">
+                    <label for="single_page_template"><?= __( 'Portfolio single page template', 'simpo' ); ?></label>
+                </th>
+                <td>
+                    <select name="simpo[single_page_template]" id="single_page_template">
+                        <?php
+                        $templates = get_page_templates( get_post() );
+                        ksort( $templates );
+                        $templates = array_merge(
+                            array(
+                                __( 'Default from plugin', 'simpo' ) => 'plugin',
+                                __( 'Default from theme', 'simpo' ) => 'theme',
+                            ),
+                            $templates
+                        );
+                        foreach( array_keys( $templates ) as $template ) {
+                            $selected = selected( $settings['single_page_template'], $templates[$template], false );
+                            echo "\n\t<option value='" . $templates[$template] . "' $selected>$template</option>";
+                        }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <th scope="row"><?= __( 'Delete images', 'simpo' ); ?></th>
                 <td>
                     <fieldset>
@@ -99,6 +123,7 @@
                 <th scope="row"><label for="link_header"><?= __( 'Link header', 'simpo' ); ?></label></th>
                 <td>
                     <input name="simpo[link_header]" type="text" id="link_header" value="<?= $settings['link_header']; ?>" class="regular-text"/>
+
                     <p class="description" id="tagline-description"><?= __( 'Header in row with site link in details table', 'simpo' ); ?></p>
                 </td>
             </tr>

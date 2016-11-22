@@ -18,10 +18,14 @@ class Content
 
     public static function template_include( $template ) {
         if( is_single() && ( get_post_type( get_the_ID() ) == 'portfolio' ) ) {
-            $filename = "single-portfolio.php";
-            if( !$file = locate_template( $filename ) )
-                $file = SIMPO_VIEWS_FRONT . $filename;
-            return apply_filters( 'simpo_select_template', $file );
+            $a = '\\' . SIMPO_NAMESPACE . '\Settings';
+            $template_name = $a::get_settings()['single_page_template'];
+            if( $template_name == 'plugin' )
+                return apply_filters( 'simpo_select_template', SIMPO_VIEWS_FRONT . "single-portfolio.php" );
+            elseif( $template_name == 'theme' )
+                return $template;
+            else
+                return locate_template( $template_name );
         }
         else
             return $template;
@@ -35,7 +39,7 @@ class Content
         if( $settings['show_link'] == 'on' && !empty( $meta["address"] ) )
             $data[] = array(
                 "name" => $settings['link_header'],
-                "value" => sprintf( '<a href="%1$s" target="_blank">%1$s</a>', $meta["address"][0] )
+                "value" => sprintf( ' < a href = "%1$s" target = "_blank" >%1$s </a > ', $meta["address"][0] )
             );
 
         foreach( \Simpo\Meta_Boxes::get_list_fields() as $field ) {
