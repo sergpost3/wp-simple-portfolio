@@ -5,7 +5,7 @@ namespace Simpo;
 class Images
 {
     public static function save_post( $postID ) {
-        $settings = \Simpo\Settings::get_settings();
+        $settings = Simpo()->Settings()->get_settings();
 
         if( !empty( $_POST['portfolio_addr'] ) && ( trim( $_POST['portfolio_addr_old'] ) != trim( $_POST['portfolio_addr'] ) ) ) {
             if( $settings['del_img_after_change'] == 'on' )
@@ -13,14 +13,14 @@ class Images
 
             if( empty( $_POST['dont_update_thumb'] ) )
                 update_post_meta( $postID, '_thumbnail_id', self::upload_thumbnail( trim( $_POST['portfolio_addr'] ) ) );
-            \SimpoPro\Images::upload_post_image_portfolio($postID);
+            //Simpo()->Images()->upload_post_image_portfolio($postID);
         }
     }
 
     private static function delete_post_images( $postID ) {
         if( empty( $_POST['dont_update_thumb'] ) )
             wp_delete_attachment( get_post_meta( $postID, '_thumbnail_id' ) );
-        \SimpoPro\Images::delete_post_image_portfolio($postID);
+        //Simpo()->Images()->delete_post_image_portfolio($postID);
     }
 
     private static function upload_thumbnail( $addr ) {
@@ -54,6 +54,6 @@ class Images
     }
 
     public static function get_default_image_src() {
-        return SIMPO__PLUGIN_URL . "images/no-photo.jpg";
+        return Simpo()->Simpo_Plugin_Url . "images/no-photo.jpg";
     }
 }

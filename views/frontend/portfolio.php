@@ -6,7 +6,7 @@
 
 global $post;
 
-$settings = \Simpo\Settings::get_settings();
+$settings = Simpo()->Settings()->get_settings();
 $args = array(
     'posts_per_page' => -1,
     "post_type" => "portfolio"
@@ -26,7 +26,7 @@ $query = new WP_Query( $args );
         <?php endif; ?>
 
         <ul class="portfolio-menu">
-            <?php foreach( \Simpo\Simpo::get_categories_list() as $key => $category ): ?>
+            <?php foreach( Simpo()->Simpo()->get_categories_list() as $key => $category ): ?>
                 <li>
                     <a href="#" data-filter="<?= $category['slug']; ?>"><?= $category['name']; ?></a>
                 </li>
@@ -37,7 +37,7 @@ $query = new WP_Query( $args );
 
 <div class="row grid">
     <?php while( $query->have_posts() ): $query->the_post(); ?>
-        <div class="col-md-<?= $col; ?> mix grid-item <?= Simpo\Simpo::get_portfolio_post_categories( $post->ID ); ?>">
+        <div class="col-md-<?= $col; ?> mix grid-item <?= Simpo()->Simpo()->get_portfolio_post_categories( $post->ID ); ?>">
             <?php
             $size = 'post-thumbnail';
             the_post_thumbnail( $size );

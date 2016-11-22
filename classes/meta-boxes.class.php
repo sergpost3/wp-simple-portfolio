@@ -5,7 +5,7 @@ namespace Simpo;
 class Meta_Boxes
 {
     public static function admin_styles_register() {
-        wp_register_style( "style-admin-simpo", simpo_core()->Simpo_Plugin_Url . "/css/admin-style.css" );
+        wp_register_style( "style-admin-simpo", Simpo()->Simpo_Plugin_Url . "/css/admin-style.css" );
     }
 
     public static function admin_styles_enqueue() {
@@ -13,15 +13,15 @@ class Meta_Boxes
     }
 
     public static function add_meta_boxes() {
-        add_meta_box( 'portfolio_addr', __( 'Portfolio data', 'simpo' ), array( 'Simpo\Meta_Boxes', 'portfolio_addr' ), array( 'portfolio' ), 'normal', 'high' );
-        //if( SIMPO_PRO_ACTIVE )
-        //    \SimpoPro\Meta_Boxes::add_meta_boxes();
+        add_meta_box( 'portfolio_addr', __( 'Portfolio data', 'simpo' ), array( Simpo()->Meta_Boxes(), 'portfolio_addr' ), array( 'portfolio' ), 'normal', 'high' );
+        //if( Simpo()->Simpo_Pro_Active )
+        //    Simpo()->Meta_Boxes()->add_meta_boxes();
     }
 
     public static function save_post( $postID ) {
         if( !empty( $_POST['portfolio_addr'] ) )
             self::save_portfolio_addr( $postID, $_POST['portfolio_addr'] );
-        //\SimpoPro\Meta_Boxes::save_post( $postID );
+        //Simpo()->Meta_Boxes()->save_post( $postID );
     }
 
     public static function portfolio_addr( $post ) {
@@ -29,9 +29,9 @@ class Meta_Boxes
         $data = array(
             "address" => ( empty( $meta["address"] ) ) ? '' : $meta["address"][0]
         );
-        //if( SIMPO_PRO_ACTIVE )
-        //    $data = \SimpoPro\Meta_Boxes::portfolio_addr( $meta, $data );
-        include( simpo_core()->Simpo_Plugin_Dir . 'meta-boxes/portfolio-addr.php' );
+        //if( Simpo()->Simpo_Pro_Active )
+        //    $data = Simpo()->Meta_Boxes()->portfolio_addr( $meta, $data );
+        include( Simpo()->Simpo_Plugin_Dir . 'meta-boxes/portfolio-addr.php' );
     }
 
     public static function save_portfolio_addr( $postID, $value ) {

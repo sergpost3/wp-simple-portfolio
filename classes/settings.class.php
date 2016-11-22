@@ -10,7 +10,7 @@ class Settings
             __( 'Portfolio settings', 'simpo' ),
             'edit_posts',
             'simpo',
-            array( simpo_core()->Settings(), "settings_page" ),
+            array( Simpo()->Settings(), "settings_page" ),
             '',
             85
         );
@@ -27,7 +27,7 @@ class Settings
         if( !empty( $_POST ) && wp_verify_nonce( $_POST['_wpnonce'], 'simpo-settings-update' ) )
             self::save_settings();
         $settings = self::get_settings();
-        include( simpo_core()->Simpo_Plugin_Dir . 'views/settings_page.php' );
+        include( Simpo()->Simpo_Plugin_Dir . 'views/settings_page.php' );
     }
 
     private static function save_settings() {

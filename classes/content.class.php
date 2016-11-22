@@ -5,9 +5,9 @@ namespace Simpo;
 class Content
 {
     public static function display_portfolio_content( $content ) {
-        if( !is_page( \Simpo\Settings::get_settings()["portfolio_page_id"] ) )
+        if( !is_page( Simpo()->Settings()->get_settings()["portfolio_page_id"] ) )
             return $content;
-        return self::get_part( SIMPO_VIEWS_FRONT . "portfolio.php" );
+        return self::get_part( Simpo()->Simpo_Views_Front . "portfolio.php" );
     }
 
     public static function get_part( $path ) {
@@ -18,10 +18,9 @@ class Content
 
     public static function template_include( $template ) {
         if( is_single() && ( get_post_type( get_the_ID() ) == 'portfolio' ) ) {
-            $sett = simpo_core()->Settings();
-            $template_name = $sett::get_settings()['single_page_template'];
+            $template_name = Simpo()->Settings()->get_settings()['single_page_template'];
             if( $template_name == 'plugin' )
-                return apply_filters( 'simpo_select_template', simpo_core()->Simpo_Views_Front . "single-portfolio.php" );
+                return apply_filters( 'simpo_select_template', Simpo()->Simpo_Views_Front . "single-portfolio.php" );
             elseif( $template_name == 'theme' )
                 return $template;
             else
@@ -32,7 +31,7 @@ class Content
     }
 
     public static function get_single_table_data( $id ) {
-        $settings = \Simpo\Settings::get_settings();
+        $settings = Simpo()->Settings()->get_settings();
         $meta = get_post_meta( $id, '', true );
         $data = array();
 
@@ -42,7 +41,7 @@ class Content
                 "value" => sprintf( ' < a href = "%1$s" target = "_blank" >%1$s </a > ', $meta["address"][0] )
             );
 
-        foreach( \Simpo\Meta_Boxes::get_list_fields() as $field ) {
+        foreach( Simpo()->Meta_Boxes()->get_list_fields() as $field ) {
             $id = $field->term_id;
             $value = ( empty( $meta["field_" . $id] ) ) ? false : $meta["field_" . $id][0];
             if( $value ) {
