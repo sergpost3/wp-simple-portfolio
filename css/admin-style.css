@@ -11,3 +11,9 @@
 .form_table textarea {
     height: 100px;
 }
+
+.proupgrade a {
+    font-weight: 900;
+    color: #d54e21;
+    font-size: 105%;
+}

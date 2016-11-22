@@ -13,7 +13,11 @@ $settings = \Simpo\Settings::get_settings();
 <?php while( have_posts() ): the_post(); ?>
     <div class="post single-portfolio">
         <div class="portfolio-image">
-            <?php Simpo\Images::portfolio_image( $post->ID, 'full', get_the_title(), get_the_title(), true ); ?>
+            <?php if(SIMPO_PRO_ACTIVE) : ?>
+                <?php \SimpoPro\Images::portfolio_image( $post->ID, 'full', get_the_title(), get_the_title(), true ); ?>
+            <?php else : ?>
+                <?php the_post_thumbnail('full'); ?>
+            <?php endif; ?>
         </div>
 
         <?php if( $details = Simpo\Simpo::get_single_detalis( $post->ID ) ) : ?>

@@ -7,13 +7,19 @@ class Content
     public static function display_portfolio_content( $content ) {
         if( !is_page( \Simpo\Settings::get_settings()["portfolio_page_id"] ) )
             return $content;
-        return include( SIMPO_VIEWS_FRONT . "portfolio.php" );
+        return self::get_part(SIMPO_VIEWS_FRONT . "portfolio.php");
+    }
+
+    public static function get_part($path){
+        ob_start();
+        include( $path );
+        $result=ob_get_contents();
+        ob_end_clean();
+        return $result;
     }
 
     public static function template_include( $template ) {
-        $post_id = get_the_ID();
-
-        if( is_single() && ( get_post_type( $post_id ) == 'portfolio' ) ) {
+        if( is_single() && ( get_post_type( get_the_ID() ) == 'portfolio' ) ) {
             $filename = "single-portfolio.php";
             if( !$file = locate_template( $filename ) )
                 $file = SIMPO_VIEWS_FRONT . $filename;

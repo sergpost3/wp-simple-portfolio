@@ -12,7 +12,14 @@ class Simpo
 
     }
 
-    public static function init() {
+    public static function action_links( $actions, $plugin_file ) {
+        unset( $actions['edit'] );
+        $link = array(
+            "proupgrade" => '<a href="admin.php?page=simpo">' . __( "Upgrade to Pro", 'simpo' ) . '</a>',
+            "settings" => '<a href="admin.php?page=simpo">' . __( "Settings", 'simpo' ) . '</a>'
+        );
+        $actions = array_merge( $link, $actions );
+        return $actions;
     }
 
     public static function load_language() {
@@ -53,6 +60,9 @@ class Simpo
     }
 
     public static function get_single_detalis( $postID ) {
+        if( !SIMPO_PRO_ACTIVE )
+            return false;
+
         $keys = array(
             //'address' => __( '', 'simpo' ),
             'base_cms' => __( 'CMS', 'simpo' ),

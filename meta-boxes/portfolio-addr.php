@@ -32,24 +32,5 @@
         </tr>
     </table>
 
-    <h3><?= __( 'Details', 'simpo' ); ?></h3>
-
-    <table class="form_table">
-        <?php foreach( \Simpo\Meta_Boxes::get_list_fields() as $field ) : ?>
-            <tr class="form-field">
-                <th scope="row">
-                    <label for="field_<?= $field->term_id; ?>"><?= $field->name; ?></label>
-                </th>
-                <td>
-                    <?php if( \Simpo\Meta_Boxes::is_textarea_feld( $field->term_id ) ) : ?>
-                        <textarea name="portfolio_details[<?= $field->term_id; ?>]" id="field_<?= $field->term_id; ?>" placeholder="<?= $field->name; ?>"><?= $data[$field->term_id]; ?></textarea>
-                    <?php else : ?>
-                        <input type="text" name="portfolio_details[<?= $field->term_id; ?>]" id="field_<?= $field->term_id; ?>" value="<?= $data[$field->term_id]; ?>" placeholder="<?= $field->name; ?>"/>
-                    <?php endif; ?>
-
-                    <p class="description"><?= ( ( class_exists( 'QTX_Translator' ) ) ? QTX_Translator::get_translator()->translate_text( $field->description ) : $field->description ); ?></p>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
+    <?php if(SIMPO_PRO_ACTIVE) include(SIMPO_PRO__PLUGIN_DIR."meta-boxes/portfolio-addr.php"); ?>
 </div>
