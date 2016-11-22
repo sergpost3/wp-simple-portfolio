@@ -3,15 +3,16 @@
 /**
  * Plugin Name: WP Simple Portfolio
  * Description: Simple Portfolio in your site
- * Version: 0.7.8
+ * Version: 0.7.8.1
  * Author: Krigus
  * Author URI: http://krigus.com/
  * License: GPL2 or later
  * Author e-mail: sergpost33@gmail.com
  */
 
-define( 'SIMPO_VERSION', '0.7.8' );
-define( 'SIMPO__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'SIMPO_VERSION', '0.7.8.1' );
+if( !defined( 'SIMPO__PLUGIN_DIR' ) )
+    define( 'SIMPO__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SIMPO__PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'SIMPO_VIEWS_FRONT', SIMPO__PLUGIN_DIR . "views/frontend/" );
 
@@ -19,11 +20,13 @@ define( 'SIMPO_VIEWS_FRONT', SIMPO__PLUGIN_DIR . "views/frontend/" );
 require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 if( is_plugin_active( 'wp-simple-portfolio-pro/wp-simple-portfolio-pro.php' ) ) {
     define( 'SIMPO_PRO_ACTIVE', true );
-    define( 'SIMPO_NAMESPACE', "SimpoPro" );
+    if( !defined( 'SIMPO_NAMESPACE' ) )
+        define( 'SIMPO_NAMESPACE', "SimpoPro" );
 }
 else {
     define( 'SIMPO_PRO_ACTIVE', false );
-    define( 'SIMPO_NAMESPACE', "Simpo" );
+    if( !defined( 'SIMPO_NAMESPACE' ) )
+        define( 'SIMPO_NAMESPACE', "Simpo" );
 }
 
 include_once( SIMPO__PLUGIN_DIR . "autoload.php" );
