@@ -9,13 +9,16 @@ class Simpo
     }
 
     public static function plugin_deactivation() {
-
+        require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+        if( is_plugin_active( 'wp-simple-portfolio-pro/wp-simple-portfolio-pro.php' ) ) {
+            deactivate_plugins( "wp-simple-portfolio-pro/wp-simple-portfolio-pro.php" );
+        }
     }
 
     public static function action_links( $actions, $plugin_file ) {
         unset( $actions['edit'] );
         $link = array(
-            "proupgrade" => '<a href="admin.php?page=simpo">' . __( "Upgrade to Pro", 'simpo' ) . '</a>',
+            "proupgrade" => '<a href="http://krigus.com/" target="_blank">' . __( "Upgrade to Pro", 'simpo' ) . '</a>',
             "settings" => '<a href="admin.php?page=simpo">' . __( "Settings", 'simpo' ) . '</a>'
         );
         $actions = array_merge( $link, $actions );

@@ -7,15 +7,13 @@ class Content
     public static function display_portfolio_content( $content ) {
         if( !is_page( \Simpo\Settings::get_settings()["portfolio_page_id"] ) )
             return $content;
-        return self::get_part(SIMPO_VIEWS_FRONT . "portfolio.php");
+        return self::get_part( SIMPO_VIEWS_FRONT . "portfolio.php" );
     }
 
-    public static function get_part($path){
+    public static function get_part( $path ) {
         ob_start();
         include( $path );
-        $result=ob_get_contents();
-        ob_end_clean();
-        return $result;
+        return ob_get_clean();
     }
 
     public static function template_include( $template ) {

@@ -3,14 +3,14 @@
 /**
  * Plugin Name: WP Simple Portfolio
  * Description: Simple Portfolio in your site
- * Version: 0.7.5
+ * Version: 0.7.6
  * Author: Krigus
  * Author URI: http://krigus.com/
  * License: GPL2 or later
  * Author e-mail: sergpost33@gmail.com
  */
 
-define( 'SIMPO_VERSION', '0.7.5' );
+define( 'SIMPO_VERSION', '0.7.6' );
 define( 'SIMPO__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SIMPO__PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'SIMPO_VIEWS_FRONT', SIMPO__PLUGIN_DIR . "views/frontend/" );
@@ -23,14 +23,6 @@ else
     define( 'SIMPO_PRO_ACTIVE', false );
 
 include_once( SIMPO__PLUGIN_DIR . "autoload.php" );
-
-// Include classes
-//require_once( SIMPO__PLUGIN_DIR . 'classes/simpo.class.php' );
-//require_once( SIMPO__PLUGIN_DIR . 'classes/post-type.class.php' );
-//require_once( SIMPO__PLUGIN_DIR . 'classes/meta-boxes.class.php' );
-//require_once( SIMPO__PLUGIN_DIR . 'classes/images.class.php' );
-//require_once( SIMPO__PLUGIN_DIR . 'classes/settings.class.php' );
-//require_once( SIMPO__PLUGIN_DIR . 'classes/content.class.php' );
 
 // Register activation and deactivation hooks
 register_activation_hook( __FILE__, array( 'Simpo\Simpo', 'plugin_activation' ) );
@@ -72,4 +64,5 @@ add_filter( 'display_post_states', array( 'Simpo\Settings', 'display_post_state'
 // Display content of page portfolio
 add_filter( 'the_content', array( 'Simpo\Content', 'display_portfolio_content' ), 99 );
 
+// Change plugin action links
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( 'Simpo\Simpo', 'action_links' ), 10, 2 );
