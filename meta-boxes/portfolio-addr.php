@@ -21,16 +21,19 @@
             <td>
                 <label for="dont_update_thumb" class="selectit">
                     <input name="dont_update_thumb" type="checkbox" value="on" id="dont_update_thumb">
-                    <?= __( 'Dont update thumbnail image', 'simpo' ); ?>
+                    <?= __( 'Update thumbnail image', 'simpo' ); ?>
                 </label><br/>
 
-                <label for="dont_update_portfolio" class="selectit">
-                    <input name="dont_update_portfolio" type="checkbox" value="on" id="dont_update_portfolio">
-                    <?= __( 'Dont update portfolio image', 'simpo' ); ?>
-                </label>
+                <?php if( SIMPO_PRO_ACTIVE ) : ?>
+                    <label for="dont_update_portfolio" class="selectit">
+                        <input name="dont_update_portfolio" type="checkbox" value="on" id="dont_update_portfolio">
+                        <?= __( 'Update portfolio image', 'simpo' ); ?>
+                    </label>
+                <?php endif; ?>
             </td>
         </tr>
     </table>
 
-    <?php if(SIMPO_PRO_ACTIVE) include(SIMPO_PRO__PLUGIN_DIR."meta-boxes/portfolio-addr.php"); ?>
+    <?php if( SIMPO_PRO_ACTIVE )
+        include( SIMPO_PRO__PLUGIN_DIR . "meta-boxes/portfolio-addr.php" ); ?>
 </div>
