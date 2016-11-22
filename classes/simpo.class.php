@@ -57,13 +57,13 @@ class Simpo
     }
 
     public static function enqueue_scripts() {
-        wp_enqueue_script( 'mixitup', SIMPO__PLUGIN_URL . 'js/mixitup.min.js', array( "jquery" ), false, true );
+        wp_enqueue_script( 'mixitup', simpo_core()->Simpo_Plugin_Url . 'js/mixitup.min.js', array( "jquery" ), false, true );
 
         wp_enqueue_style( 'dashicons' );
     }
 
     public static function get_single_detalis( $postID ) {
-        if( !SIMPO_PRO_ACTIVE )
+        if( !simpo_core()->Simpo_Pro_Active )
             return false;
 
         $keys = array(

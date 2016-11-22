@@ -5,7 +5,7 @@ namespace Simpo;
 class Meta_Boxes
 {
     public static function admin_styles_register() {
-        wp_register_style( "style-admin-simpo", SIMPO__PLUGIN_URL . "/css/admin-style.css" );
+        wp_register_style( "style-admin-simpo", simpo_core()->Simpo_Plugin_Url . "/css/admin-style.css" );
     }
 
     public static function admin_styles_enqueue() {
@@ -31,7 +31,7 @@ class Meta_Boxes
         );
         //if( SIMPO_PRO_ACTIVE )
         //    $data = \SimpoPro\Meta_Boxes::portfolio_addr( $meta, $data );
-        include( SIMPO__PLUGIN_DIR . 'meta-boxes/portfolio-addr.php' );
+        include( simpo_core()->Simpo_Plugin_Dir . 'meta-boxes/portfolio-addr.php' );
     }
 
     public static function save_portfolio_addr( $postID, $value ) {

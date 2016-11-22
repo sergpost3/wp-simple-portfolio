@@ -18,10 +18,10 @@ class Content
 
     public static function template_include( $template ) {
         if( is_single() && ( get_post_type( get_the_ID() ) == 'portfolio' ) ) {
-            $a = '\\' . SIMPO_NAMESPACE . '\Settings';
-            $template_name = $a::get_settings()['single_page_template'];
+            $sett = simpo_core()->Settings();
+            $template_name = $sett::get_settings()['single_page_template'];
             if( $template_name == 'plugin' )
-                return apply_filters( 'simpo_select_template', SIMPO_VIEWS_FRONT . "single-portfolio.php" );
+                return apply_filters( 'simpo_select_template', simpo_core()->Simpo_Views_Front . "single-portfolio.php" );
             elseif( $template_name == 'theme' )
                 return $template;
             else

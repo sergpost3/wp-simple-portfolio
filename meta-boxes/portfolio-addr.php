@@ -24,7 +24,7 @@
                     <?= __( 'Update thumbnail image', 'simpo' ); ?>
                 </label><br/>
 
-                <?php if( SIMPO_PRO_ACTIVE ) : ?>
+                <?php if( simpo_core()->Simpo_Pro_Active ) : ?>
                     <label for="dont_update_portfolio" class="selectit">
                         <input name="dont_update_portfolio" type="checkbox" value="on" id="dont_update_portfolio">
                         <?= __( 'Update portfolio image', 'simpo' ); ?>
@@ -34,6 +34,6 @@
         </tr>
     </table>
 
-    <?php if( SIMPO_PRO_ACTIVE )
+    <?php if( simpo_core()->Simpo_Pro_Active )
         include( SIMPO_PRO__PLUGIN_DIR . "meta-boxes/portfolio-addr.php" ); ?>
 </div>
