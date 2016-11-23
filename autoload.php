@@ -13,7 +13,12 @@ if( !function_exists( 'simpo_autoload' ) ) {
         else
             return;
 
-        include_once( ABSPATH . "wp-content/plugins" . "/" . $folder . "/classes/" . str_replace( "_", "-", strtolower( $class[1] ) ) . ".class.php" );
+        $file = ABSPATH . "wp-content/plugins" . "/" . $folder . "/classes/" . str_replace( "_", "-", strtolower( $class[1] ) ) . ".class.php";
+
+        if( !file_exists( $file ) )
+            return false;
+
+        include_once( $file );
     }
 
     spl_autoload_register( 'simpo_autoload' );

@@ -66,6 +66,9 @@ class Settings
             'link_header' => 'Site link',
             'show_link' => 'on',
             'single_page_template' => 'plugin',
+
+            'spp_show_title' => 'on',
+            'spp_image_type' => 1,
         );
     }
 }

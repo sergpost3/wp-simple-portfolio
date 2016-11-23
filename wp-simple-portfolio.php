@@ -3,28 +3,31 @@
 /**
  * Plugin Name: WP Simple Portfolio
  * Description: Simple Portfolio in your site
- * Version: 0.8.0.1
+ * Version: 0.8.1
  * Author: Krigus
  * Author URI: http://krigus.com/
  * License: GPL2 or later
  * Author e-mail: sergpost33@gmail.com
  */
 
+require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 include_once( plugin_dir_path( __FILE__ ) . "autoload.php" );
 
-if( !function_exists( 'simpo_core' ) ) {
+if( !function_exists( 'Simpo' ) ) {
     function Simpo() {
-        return \Simpo\Registry::get_instance();
+        if( is_plugin_active( 'wp-simple-portfolio-pro/wp-simple-portfolio-pro.php' ) )
+            return \SimpoPro\Registry::get_instance();
+        else
+            return \Simpo\Registry::get_instance();
     }
 }
 
-Simpo()->Simpo_Version = '0.8.0.1';
+Simpo()->Simpo_Version = '0.8.1';
 Simpo()->Simpo_Plugin_Dir = plugin_dir_path( __FILE__ );
 Simpo()->Simpo_Plugin_Url = plugin_dir_url( __FILE__ );
 Simpo()->Simpo_Views_Front = Simpo()->Simpo_Plugin_Dir . "views/frontend/";
 
 // Check if PRO version is active
-require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 if( is_plugin_active( 'wp-simple-portfolio-pro/wp-simple-portfolio-pro.php' ) )
     Simpo()->Simpo_Pro_Active = true;
 else

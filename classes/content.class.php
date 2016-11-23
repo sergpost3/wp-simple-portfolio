@@ -10,10 +10,25 @@ class Content
         return self::get_part( Simpo()->Simpo_Views_Front . "portfolio.php" );
     }
 
-    public static function get_part( $path ) {
+    public static function get_part( $path, $args = array() ) {
+        if( !empty( $args ) )
+            extract( $args );
         ob_start();
         include( $path );
         return ob_get_clean();
+    }
+
+    public function display_portfolio_sinlge_content( $content ) {
+        if( is_single() && ( get_post_type( get_the_ID() ) == 'portfolio' ) ) {
+            global $post;
+            return self::get_part(
+                Simpo()->Simpo_Views_Front . "single-portfolio-inner.php",
+                array(
+                    'post' => $post
+                )
+            );
+        }
+        return $content;
     }
 
     public static function template_include( $template ) {
@@ -23,8 +38,10 @@ class Content
                 return apply_filters( 'simpo_select_template', Simpo()->Simpo_Views_Front . "single-portfolio.php" );
             elseif( $template_name == 'theme' )
                 return $template;
-            else
+            else {
+                add_filter( 'the_content', array( Simpo()->Content(), 'display_portfolio_sinlge_content' ), 99 );
                 return locate_template( $template_name );
+            }
         }
         else
             return $template;

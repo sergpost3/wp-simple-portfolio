@@ -24,7 +24,7 @@ class Meta_Boxes
         //Simpo()->Meta_Boxes()->save_post( $postID );
     }
 
-    public static function portfolio_addr( $post ) {
+    public static function portfolio_addr( $post, &$meta = false, &$data = false ) {
         $meta = get_post_meta( $post->ID, '', true );
         $data = array(
             "address" => ( empty( $meta["address"] ) ) ? '' : $meta["address"][0]

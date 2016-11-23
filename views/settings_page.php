@@ -129,6 +129,43 @@
             </tr>
         </table>
 
+        <h2><?= __( 'Single Portfolio Page', 'simpo' ); ?></h2>
+
+        <table class="form-table">
+            <tr>
+                <th scope="row"><?= __( 'Show title', 'simpo' ); ?></th>
+                <td>
+                    <fieldset>
+                        <label for="spp_show_title">
+                            <?php if( $settings['spp_show_title'] == 'on' ): ?>
+                                <input name="simpo[spp_show_title]" type="checkbox" id="spp_show_title" value="on" checked="checked">
+                            <?php else : ?>
+                                <input name="simpo[spp_show_title]" type="checkbox" id="spp_show_title" value="on">
+                            <?php endif; ?>
+                            <?= __( 'Show title in the single portfolio page', 'simpo' ); ?>
+                        </label>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><?= __( 'Image type', 'simpo' ); ?></th>
+                <td>
+                    <fieldset>
+                        <label>
+                            <input type="radio" name="simpo[spp_image_type]" value="2" <?php if( $settings['spp_image_type'] == '1' )
+                                echo 'checked="checked"'; ?> />
+                            <?= __( 'One screen', 'simpo' ); ?>
+                        </label><br/>
+                        <label>
+                            <input type="radio" name="simpo[spp_image_type]" value="3" <?php if( $settings['spp_image_type'] == '3' )
+                                echo 'checked="checked"'; ?> />
+                            <?= __( 'Type 2', 'simpo' ); ?>
+                        </label>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+
         <p class="submit">
             <input type="submit" name="submit" id="submit" class="button button-primary" value="<?= __( 'Save', 'simpo' ); ?>">
         </p>
